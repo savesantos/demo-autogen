@@ -1,0 +1,85 @@
+#! more info here: https://github.com/actions/labeler
+docker:
+- changed-files:
+  - any-glob-to-any-file:
+    - .docker/**/*
+
+documentation:
+- changed-files:
+  - any-glob-to-any-file:
+    - "**/*.md"
+
+k8s:
+- changed-files:
+  - any-glob-to-any-file:
+    - .k8s/**/*
+
+gh:
+- changed-files:
+  - any-glob-to-any-file:
+    - ".github/*"
+
+gh/templates:
+- changed-files:
+  - any-glob-to-any-file:
+    - ".github/ISSUE_TEMPLATE/*"
+
+gh/workflows:
+- changed-files:
+  - any-glob-to-any-file:
+    - ".github/workflows/*"
+
+scripts:
+- changed-files:
+  - any-glob-to-any-file:
+    - "scripts/**/*"
+
+tests:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/*"
+
+tests/common:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/common/**/*"
+
+tests/e2e:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/e2e/**/*"
+
+tests/functional:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/functional/**/*"
+
+tests/integration:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/integration/**/*"
+
+tests/load:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/load/**/*"
+
+tests/performance:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/performance/**/*"
+
+tests/security:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/security/**/*"
+
+tests/smoke:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/smoke/**/*"
+
+tests/unit:
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/unit/**/*"

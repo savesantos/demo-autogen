@@ -1,0 +1,12 @@
+{
+  "extensions": {
+    "recommendations": [
+      "editorconfig.editorconfig",
+      "mhutchie.git-graph",
+      "shardulm94.trailing-spaces",
+      "vstirbu.vscode-mermaid-preview",
+      "ms-azuretools.vscode-docker",
+      "ms-kubernetes-tools.vscode-kubernetes-tools"
+    ]
+  }
+}
