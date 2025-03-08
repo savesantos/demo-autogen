@@ -1,0 +1,4 @@
+autogen-agentchat
+autogen-ext[openai]
+autogen-ext[azure]
+python-dotenv

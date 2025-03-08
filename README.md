@@ -125,32 +125,20 @@ Extra:
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Create and activate virtual environment:
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-    ```sh
-    git clone https://github.com/github_username/repo_name.git
-    cd repo_name
-    ```
-3. Install libraries
-    ```sh
-    dotnet restore
-    ```
-4. Enter your API in `app.settings`
-    ```json
-    API_KEY: "ENTER YOUR API"
-    ```
-5. Build the project
-    ```sh
-    dotnet build
-    ```
-6. Run the project
-    ```sh
-    dotnet run
-    ```
-7. Open your browser and navigate to `http://localhost:5000`
-8. Enjoy!
+```sh
+# On Windows, change `python3` to `python` (if `python` is Python 3).
+python3 -m venv .venv
+# On Windows, change `bin` to `scripts`.
+source .venv/bin/activate
+```
+
+2. Install python requirements:
+
+```sh
+pip install -r requirements.txt
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
