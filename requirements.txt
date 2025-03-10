@@ -1,4 +1,6 @@
 autogen-agentchat
 autogen-ext[openai]
 autogen-ext[azure]
+autogen-ext[web-surfer]
+autogen-ext[video-surfer]
 python-dotenv

@@ -1,11 +1,26 @@
-from autogen_agentchat.agents import AssistantAgent
 from autogen_agentchat.ui import Console
 from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+from autogen_ext.agents.video_surfer import VideoSurfer
+from autogen_ext.agents.web_surfer import MultimodalWebSurfer
+from autogen_agentchat.agents import UserProxyAgent
+from autogen_agentchat.conditions import TextMentionTermination
+from autogen_agentchat.teams import RoundRobinGroupChat
 import os
+import sys
+import asyncio
 from dotenv import load_dotenv
+
+from autogen_ext.agents.video_surfer.tools import (
+    get_screenshot_at,
+    save_screenshot,
+    transcribe_video_screenshot,
+)
 
 # Load environment variables from .env file
 load_dotenv()
+
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 # Define a model client. You can use other model client that implements
 # the `ChatCompletionClient` interface.
@@ -16,32 +31,32 @@ model_client = AzureOpenAIChatCompletionClient(
     api_key=os.getenv("OPENAI_API_KEY"), # For key-based authentication.
 )
 
-
-# Define a simple function tool that the agent can use.
-# For this example, we use a fake weather tool for demonstration purposes.
-async def get_weather(city: str) -> str:
-    """Get the weather for a given city."""
-    return f"The weather in {city} is 73 degrees and Sunny."
-
-
-# Define an AssistantAgent with the model, tool, system message, and reflection enabled.
-# The system message instructs the agent via natural language.
-agent = AssistantAgent(
-    name="weather_agent",
+# Define an agent
+video_agent = VideoSurfer(
+    name="VideoSurfer",
     model_client=model_client,
-    tools=[get_weather],
-    system_message="You are a helpful assistant.",
-    reflect_on_tool_use=True,
-    model_client_stream=True,  # Enable streaming tokens from the model client.
-)
+    )
 
+web_surfer_agent = MultimodalWebSurfer(
+    name="MultimodalWebSurfer",
+    model_client=model_client,
+    )
+
+user_proxy = UserProxyAgent("user_proxy", input_func=input)  # Use input() to get user input from console.
+
+# Create the termination condition which will end the conversation when the user says "APPROVE".
+termination = TextMentionTermination("APPROVE")
+
+# Create the team.
+team = RoundRobinGroupChat([video_agent, web_surfer_agent, user_proxy], termination_condition=termination)
 
 # Run the agent and stream the messages to the console.
-async def main() -> None:
-    await Console(agent.run_stream(task="What is the weather in New York?"))
-
-
 # NOTE: if running this inside a Python script you'll need to use asyncio.run(main()).
-import asyncio
+async def main() -> None:
+    # Run the conversation and stream to the console.
+    await team.reset()
+    stream = team.run_stream(task="what is happening in the video source/private_assets/video.mp4")
+    await Console(stream)
 
+# Run the main function
 asyncio.run(main())
