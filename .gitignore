@@ -391,3 +391,14 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# environmental variables
+.env
+
+*private*
