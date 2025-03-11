@@ -1,6 +1,5 @@
 autogen-agentchat
 autogen-ext[openai]
 autogen-ext[azure]
-autogen-ext[langchain]
 python-dotenv
 langchain-community
