@@ -45,7 +45,7 @@ data_analyst = AssistantAgent(
     model_client=model_client,
     handoffs=["general_manager", "researcher_assistant"],
     system_message="""You are a data analyst specialized in analyzing NFL players statistics.
-    The reseacher_assistant is in charge of collecting the data about the players.
+    The researcher_assistant is in charge of collecting the data about the players.
     The general_manager is in charge of signing new players to the team and making the final decision.
     If you need information from the user, you must first send your message, then you can handoff to the user.""",
 )
