@@ -1,6 +1,7 @@
 autogen-agentchat
 autogen-ext[openai]
 autogen-ext[azure]
+autogen-ext[magentic-one]
 python-dotenv
 langchain-community
 agentops
