@@ -8,6 +8,7 @@ import os
 import sys
 import asyncio
 from dotenv import load_dotenv
+import agentops
 
 # Load environment variables from .env file
 load_dotenv()
@@ -66,4 +67,13 @@ async def main():
     await Console(group_chat.run_stream(task=task))
 
 if __name__ == "__main__":
+    api_key = os.getenv("AGENTOPS_API_KEY")
+
+    agentops.init(
+        api_key=api_key,
+        default_tags=['autogen']
+    )
+    
     asyncio.run(main())
+    agentops.end_session("Success")
+

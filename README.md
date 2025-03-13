@@ -63,8 +63,8 @@ This project aims to showcase a basic demonstration of how AutoGen 0.4 implement
 
 - [x] Add Selector Group Chat demo
 - [x] Add Round Robin Group Chat demo
-- [ ] Add Magentic-One Group Chat demo
-- [ ] Add Swarm Group Chat demo
+- [x] Add Magentic-One demo
+- [x] Add Swarm demo
 
 See the [open issues](https://github.com/savesantos/demo-autogen/issues) for a full list of proposed features (and known issues).
 
@@ -106,25 +106,6 @@ Contributions are what make the open source community such an amazing place to l
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Task Branch (`git checkout -b task-my-awesome-task`)
-3. Commit your Changes (`git commit -m 'Add some thing that you did.'`)
-4. Push to the Branch (`git push origin task-my-awesome-task`)
-5. Open a Pull Request from `task-my-awesome-task` to `dev` branch.
-    a. Please include a summary of the changes you made.
-    b. Include screenshots or gifs if applicable.
-    c. Include relevant links to issues or documentation.
-    d. Assign to yourself
-    e. Request a review from the project maintainer(s)
-
-**NOTES:**
-
-- Please use the following naming convention for branches:
-
-a. (task) - for tasks: `git checkout -b task-my-awesome-task`
-b. (feature) - for new features: `git checkout -b feature-my-amazing-feature`
-c. (bug) - for bug fixes: `git checkout -b fix-my-awesome-fix`
 
 ### Top contributors:
 
