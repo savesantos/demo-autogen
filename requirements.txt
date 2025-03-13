@@ -5,3 +5,4 @@ autogen-ext[magentic-one]
 python-dotenv
 langchain-community
 agentops
+duckduckgo-search
