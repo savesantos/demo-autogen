@@ -63,8 +63,8 @@ This project aims to showcase a basic demonstration of how AutoGen 0.4 implement
 
 - [x] Add Selector Group Chat demo
 - [x] Add Round Robin Group Chat demo
-- [ ] Add Magentic-One Group Chat demo
-- [ ] Add Swarm Group Chat demo
+- [x] Add Magentic-One demo
+- [ ] Add Swarm demo
 
 See the [open issues](https://github.com/savesantos/demo-autogen/issues) for a full list of proposed features (and known issues).
 
