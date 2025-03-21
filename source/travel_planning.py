@@ -3,7 +3,7 @@ from autogen_agentchat.conditions import TextMentionTermination
 from autogen_agentchat.teams import SelectorGroupChat
 from autogen_agentchat.ui import Console
 from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
-from langchain_community.tools import BraveSearch 
+from langchain_community.tools import DuckDuckGoSearchResults
 import os
 import sys
 import asyncio
@@ -18,11 +18,9 @@ load_dotenv()
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
-api_key = os.getenv("BRAVE_SEARCH_API_KEY")
-
-def brave_search_tool(search_query: str): 
-    tool = BraveSearch.from_api_key(api_key=api_key)
-    result = tool.run(search_query)
+def duckduckgo_search_tool(search_query: str): 
+    tool = DuckDuckGoSearchResults()
+    result = tool.invoke(search_query)
     return result
 
 # Define a model client. You can use other model client that implements
@@ -59,7 +57,7 @@ planning_agent = AssistantAgent(
 web_search_agent = AssistantAgent(
     "web_search_agent",
     model_client=model_client,
-    tools=[brave_search_tool],
+    tools=[duckduckgo_search_tool],
     description="A helpful assistant that can plan trips.",
     system_message="You are a helpful assistant that can suggest a travel plan for a user based on their request. Use the tool to search for information on the web to provide the best possible suggestions.",
 )
